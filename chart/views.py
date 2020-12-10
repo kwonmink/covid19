@@ -33,7 +33,7 @@ def sum_cases(df):
     # Section 3 - 합계 열 계산
     # df['Cases'] = df[['Confirmed', 'Recovered', 'Deaths']].sum(axis=1)  # (확진자, 회복자, 사망자) 합계
     # df['Cases'] = df[['Deaths']].sum(axis='columns')   # 사망자 수치만 합계에 포함
-    df['Cases'] = df[['Confirmed']].sum(axis='columns')  # 확진자 수치만 합계에 포함
+    df['Cases'] = df[['Confirmed']].sum(axis='columns')*10  # 확진자 수치만 합계에 포함
     return df
 
 
@@ -108,7 +108,7 @@ def make_chart(my_data):
         },
         'yAxis': [{  # Primary yAxis
             'labels': {
-                'format': '{value} 건/십만 명',
+                'format': '{value} 건/백만 명',
                 'style': {'color': 'blue'}
             }, 'title': {
                 'text': '누적 비율',
